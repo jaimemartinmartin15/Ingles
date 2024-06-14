@@ -3,16 +3,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { normalizeString } from '@jaimemartinmartin15/jei-devkit-angular-shared';
 import { RetrieveVerbsResolver } from './retrieve-verbs.resolver';
 import { Verb, VerbKeysForm, VerbKeysFormOfType } from './verb';
-
-// TODO move to shared library?
-const normalizeString = (value: string): string =>
-  value
-    .normalize('NFD')
-    .replace(/\p{Diacritic}/gu, '')
-    .toLocaleLowerCase()
-    .trim();
 
 @Component({
   selector: 'app-tenses',
