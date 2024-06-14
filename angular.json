@@ -44,14 +44,24 @@
             "outputPath": "dist/ingles",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "namedChunks": true,
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/assets/favicons",
+              {
+                "glob": "**/*",
+                "input": "src/app/alphabet/assets",
+                "output": "/assets/alphabet/"
+              },
+              {
+                "glob": "verbs.json",
+                "input": "src/app/tenses/assets",
+                "output": "/assets/no-cache/tenses/"
+              }
             ],
             "styles": [
               "src/styles.scss"
