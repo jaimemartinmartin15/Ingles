@@ -1,0 +1,29 @@
+name: Update verbs list tenses
+run-name: Update verbs.json
+
+on:
+  workflow_dispatch: # allow manual trigger
+  push:
+    paths: ["src/app/tenses/assets/verbs.json"]
+
+jobs:
+  update-verbs-list:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: minify json
+        run: |
+          echo "console.log(JSON.stringify(JSON.parse(\`$(cat src/app/tenses/assets/verbs.json | sed "s/\"/\\\\\"/g")\`).sort((v1,v2) => (v1.infinitive > v2.infinitive) ? 1 : ((v2.infinitive > v1.infinitive) ? -1 : 0))));" > verbs.temp.js
+          node verbs.temp.js > verbs.json
+      - name: Set AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Upload file
+        run: |
+          aws --version
+          aws s3 cp verbs.json s3://jaimeelingeniero.es/ingles/assets/no-cache/tenses/verbs.json
