@@ -2,7 +2,7 @@
 
 Angular web page application that allows to practice English. Deployed to <https://jaimeelingeniero.es/ingles>
 
-[![Build And Deploy](https://github.com/jaimemartinmartin15/Ingles/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/jaimemartinmartin15/Ingles/actions/workflows/build-and-publish.yml)
+[![Build And Deploy](https://github.com/jaimemartinmartin15/Ingles/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/jaimemartinmartin15/Ingles/actions/workflows/build-and-publish.yml) [![Update verbs list tenses](https://github.com/jaimemartinmartin15/Ingles/actions/workflows/update-verbs-tenses.yml/badge.svg)](https://github.com/jaimemartinmartin15/Ingles/actions/workflows/update-verbs-tenses.yml)
 
 ## Development
 
