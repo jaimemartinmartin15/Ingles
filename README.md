@@ -1,4 +1,4 @@
-# Comprende Rxjs
+# Ingles
 
 Angular web page application that allows to practice English. Deployed to <https://jaimeelingeniero.es/ingles>
 
